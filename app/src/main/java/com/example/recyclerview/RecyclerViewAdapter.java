@@ -13,11 +13,11 @@ import java.util.ArrayList;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
 
-    private ArrayList<String> myArray = new ArrayList<>();
+    private ArrayList<RecyclerViewRowClass> myArray = new ArrayList<>();
     private Context context;
     private LayoutInflater mInflater;
 
-    public RecyclerViewAdapter(ArrayList<String> myArray, Context context) {
+    public RecyclerViewAdapter(ArrayList<RecyclerViewRowClass> myArray, Context context) {
         this.myArray = myArray;
         this.context = context;
         this.mInflater = LayoutInflater.from(context);
@@ -32,8 +32,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-        String str = myArray.get(i);
+        String str = myArray.get(i).text;
+        Boolean aboolean = myArray.get(i).isChecked;
         viewHolder.textView.setText(str);
+        if(aboolean) viewHolder.checkBox.setChecked(true);
+        else viewHolder.checkBox.setChecked(false);
     }
 
     @Override

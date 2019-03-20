@@ -16,10 +16,10 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.main_recycler_view);
 
-        ArrayList<String> myList = new ArrayList<>();
-        for (int i = 0; i < 100; i++){
-            myList.add("String number " + (i+1));
-        }
+        ArrayList<RecyclerViewRowClass> myList = new ArrayList<>();
+            myList.add(new RecyclerViewRowClass("My Text1", true));
+            myList.add(new RecyclerViewRowClass("My Text2", false));
+            myList.add(new RecyclerViewRowClass("My Text3", true));
 
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(myList, this);
         recyclerView.setAdapter(recyclerViewAdapter);
