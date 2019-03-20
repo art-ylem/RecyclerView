@@ -35,8 +35,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         String str = myArray.get(i).text;
         Boolean aboolean = myArray.get(i).isChecked;
         viewHolder.textView.setText(str);
-        if(aboolean) viewHolder.checkBox.setChecked(true);
-        else viewHolder.checkBox.setChecked(false);
+        viewHolder.checkBox.setChecked(aboolean);
     }
 
     @Override
